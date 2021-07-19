@@ -1,0 +1,124 @@
+.animationViewPost
+    animation: showViewPost 0.3s
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-top: 75px
+    margin-bottom: 75px
+
+.arrowBack
+    position: absolute
+    align-self: baseline
+    margin-top: -18px
+    transition: all 0.2s
+    color: $main_color
+
+.arrowBack:hover
+    transform: scale(1.2)
+    color: $red
+    cursor: pointer
+
+.viewPostContainer
+    margin-top: 80px
+    display: grid
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.185)
+    grid-template-columns: 55% 45%
+
+.PostImgsContainer
+    padding: 2%
+    background: $white
+
+.bannerIMG
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-top: 20px
+    height: 633px
+    max-height: 633px
+    width: 100%
+    background: $main_color
+
+.bannerIMG img
+    width: 100%
+    height: 100%
+    height: 633px
+    max-height: 633px
+
+#postDescriptionPub
+    max-height: 140px !important
+    overflow-y: scroll
+
+.infoPostContainer
+    color: $main_color
+    padding: 2%
+    margin-top: 8px
+    background: $white
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+.profileSection
+    padding: 2%
+    border-radius: 5px
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.158)
+
+.profileMainInfo
+    font-size: 15pt
+
+.btnSendMessage
+    margin-top: 32px
+    width: 100%
+    height: 45px
+
+.postInfo
+    color: $main_color !important
+
+.postTypeBanner
+    margin-top: 20px
+    position: absolute
+    padding: 10px 30px
+    font-weight: bold
+    border-radius: 0 0 10px 0
+    background: $main_color
+    color: $white
+
+.removeListArrow::after
+    display: none
+
+@keyframes showViewPost
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+@media screen and (max-width: 1024px)
+
+    .viewPostContainer
+        display: flex
+
+    .PostImgsContainer
+        display: flex
+        flex-direction: column-reverse
+        width: 100%
+
+    .betweenMobile
+        justify-content: space-between
+
+    .animationViewPost
+        justify-content: start
+        align-items: start
+
+    .bannerIMG
+        margin-top: 30px
+        height: 350px
+
+    .arrowBack
+        top: 110px
+
+    .smallIMGcontainer
+        display: inline-block
+
+    .smallIMGcontainer:hover
+        transform: scale(1)

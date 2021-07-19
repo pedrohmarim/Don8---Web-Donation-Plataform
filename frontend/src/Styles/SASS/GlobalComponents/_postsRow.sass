@@ -1,0 +1,192 @@
+.changeBody
+    background: $main_color
+
+#animationPosts
+    animation: animationPosts
+    animation-duration: 0.4s
+    animation-iteration-count: 1
+    position: relative
+    z-index: 3
+
+.static
+    position: static !important
+
+.containerRows
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.185)
+    background: $white
+    border-radius: 10px
+    margin: 0 20px
+    padding: 0.5% 1.5%
+
+.dropdown-filter .nav-link
+    padding: 0
+    font-weight: 600
+    color: $main_color
+
+.dropdown-filter:hover > .dropdown-menu
+    display: block
+
+.drop-filter
+    margin-left: -65px !important
+
+.containerRows h2,h3,.title
+    color: $main_color
+
+.mtH3
+    margin-top: 20px
+
+.ajustMT
+    padding-top: 20px
+    margin-left: 20px
+
+.numberPosts
+    font-size: 15pt
+    color: $main_color
+    opacity: 70%
+    padding-top: 4px !important
+    margin-left: 5px !important
+
+.postsRow--listarea
+    overflow-x: hidden !important
+    border-bottom: 1px solid #0000002d
+
+.removeBorder
+    border-bottom: none
+
+.postsRow--list
+    margin-bottom: 25px
+    transition: all ease 0.5s
+
+.postsRow--item
+    border-radius: 5px
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.185)
+    transform: scale(0.9)
+    display: inline-block !important
+    height: 210px
+    width: 150px
+    cursor: pointer
+    transition: all 0.2s ease
+
+.noPostsP
+    color: $main_color
+    font-size: 19pt
+    margin-top: 30px
+    opacity: 70%
+    margin-left: 20px
+
+.postsRow--item:hover
+    transform: scale(1)
+
+.postsRow--item:hover .postOwnerName
+    z-index: 1
+
+.postsRow--item:hover .hoverPostTitle
+    z-index: 1
+    position: relative
+
+.postsRow--left,
+.postsRow--right
+    position: absolute
+    width: 50px
+    height: 210px
+    color: $main_color
+    z-index: 99
+    display: flex
+    align-items: center
+    justify-content: center
+    overflow: hidden
+    cursor: pointer
+    opacity: 0
+    transition: all ease 0.2s
+    background: #33345c54
+
+.postsRow--left svg,
+.postsRow--right svg
+    height: 200px !important
+
+.postsRow--left
+    left: 5px
+
+.postsRow--right
+    right: 3px
+
+.postsRow:hover .postsRow--left,
+.postsRow:hover .postsRow--right
+    opacity: 1
+
+.itemTypeContainer
+    width: 100%
+    height: 25%
+    border-radius: 5px 5px 0 0
+    font-weight: bold
+    font-size: 15pt
+    color: $white
+
+.backGroundImgItem
+    width: 100%
+    height: 75%
+    background: transparent
+
+.itemRecievingType
+    background: #232440d0
+
+.itemDonationType
+    background: #232440
+
+.postOwnerName
+    width: 100%
+    position: absolute
+    right: 0
+    bottom: 0
+    display: flex
+    align-items: center
+    font-size: 16pt
+    padding: 0 10px
+    color: $white
+    background: #33345c9d
+    height: 40px
+    font-weight: 500
+    border-radius: 0 0 5px 5px
+    z-index: -1
+
+.hoverPostTitle
+    z-index: -1
+    position: absolute
+    margin-top: -8px !important
+    font-weight: 400
+    font-size: 13pt
+
+.headerItem
+    height: fit-content
+    color: $white
+
+@keyframes animationPosts
+    0%
+        transform: translateX(100%)
+
+//POST ROW MOBILE
+
+@media screen and (max-width: 1024px)
+
+    #animationPosts
+        padding: 0 !important
+
+    #animationPosts h1
+        margin: 0 0 10px 10px !important
+        font-size: 28pt
+
+    #animationPosts h2
+        font-size: 20pt
+
+    .containerRows
+        margin: 0
+
+    .postPublContainer,.filter
+        display: none !important
+
+    .postsRow--left
+        left: -15px
+
+    .postsRow--left,
+    .postsRow--right
+        opacity: 1

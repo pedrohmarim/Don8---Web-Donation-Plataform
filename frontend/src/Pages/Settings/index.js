@@ -1,0 +1,90 @@
+import React, { useEffect, useState } from 'react';
+
+import Header from '../../Components/GlobalComp/header';
+import Main from '../../Components/SettingsComp/main'
+import Modal from '../../Components/GlobalComp/modalPost';
+
+import Cookie from 'js-cookie';
+import api from '../../api.js'
+
+export default function Settings() {
+
+    document.getElementsByTagName("title")[0].innerText = 'Don8 | Configurações';
+
+    const [headerColor, setHeaderColor] = useState(false)
+
+    const [userName, setUserName] = useState('')
+    const [repCompanyName, setRepCompanyName] = useState('')
+    const [idType, setIdType] = useState('')
+    const [loginToken, setLoginToken] = useState(false)
+
+    useEffect(() => {
+        const scrollListener = () => {
+            if (window.scrollY > 10) {
+                setHeaderColor(true);
+            } else {
+                setHeaderColor(false)
+            }
+        }
+
+        window.addEventListener('scroll', scrollListener)
+
+        const _id = Cookie.get('ID', 'value');
+        const idType = Cookie.get('Type', 'value');
+        setIdType(idType)
+
+        switch (idType) {
+            case 'cpf':
+                api.get('/user', {
+                    headers: {
+                        _id
+                    }
+                }).then((res) => {
+                    if (res.data._id !== null) {
+                        setUserName(res.data.userName)
+                        setLoginToken(true)
+                    } else {
+                        setLoginToken(false)
+                    }
+                })
+                break;
+            case 'cnpj':
+                api.get('/company', {
+                    headers: {
+                        _id
+                    }
+                }).then((res) => {
+                    if (res.data._id !== null) {
+                        setLoginToken(true)
+                        setRepCompanyName(res.data.rep.name);
+                    } else {
+                        setLoginToken(false)
+                    }
+                })
+                break;
+            default:
+                break;
+        }
+
+        return () => {
+            window.removeEventListener('scroll', scrollListener)
+        }
+
+    }, []);
+    return (
+        <>
+            <Header
+                change={headerColor}
+                loginToken={loginToken}
+                loggedUserName={
+                    idType === 'cpf' ?
+                        userName
+                        :
+                        repCompanyName
+                }
+            />
+            <Main />
+            <Modal />
+        </>
+    )
+}

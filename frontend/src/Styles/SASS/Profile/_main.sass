@@ -1,0 +1,64 @@
+.animationProfile
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+.centered
+    transition: all 0.5s
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+h1,h4
+    color: $main_color
+
+.borderSolid
+    border-top: solid 1px $main_color
+
+.adressesContainer
+    color: $main_color
+
+.profile-container
+    background: $white
+    border-radius: 10px
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.185)
+
+.ajustFont
+    font-size: 16pt
+
+.input-profile-container .MuiInputBase-input
+    margin-top: 15px
+
+#cep,#number,#street,#block,#city,#uf
+    margin: 0
+
+#addAdress-btn,#save-addAdress-btn
+    border: solid 1px #969696
+    padding: 0.5%
+    width: 200px
+    border-radius: 5px
+    font-weight: 500
+    color: $main_color
+    transition: all 0.5s
+
+.ajustMTAddAdress
+    margin-top: 100px
+
+#addAdress-btn:hover
+    background: $main_color
+    color: $white
+
+#save-addAdress-btn
+    width: 100%
+    background: $main_color
+    color: $white
+
+#save-addAdress-btn:hover
+    opacity: 80%
+
+@keyframes showProfile
+    0%
+        transform: translateX(-100%)
